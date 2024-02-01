@@ -1,3 +1,0 @@
-D:/Document/4_Projects/gitee/basic-data-structures-implementation/src/build/CMakeFiles/test.dir
-D:/Document/4_Projects/gitee/basic-data-structures-implementation/src/build/CMakeFiles/edit_cache.dir
-D:/Document/4_Projects/gitee/basic-data-structures-implementation/src/build/CMakeFiles/rebuild_cache.dir

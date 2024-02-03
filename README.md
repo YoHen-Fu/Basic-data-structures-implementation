@@ -6,18 +6,18 @@
 
 ## 3、栈（Stack）
 
-## 4、队列（Queue）
+## 4、[队列（Queue）](./docs/Queue.md)
 
 **public functions:**
 
-| type         | function name              |
-| ------------:|:-------------------------- |
-|              | [Queue()](./docs/Queue.md) |
-|              | ~Queue()                   |
-| void         | CreateQueue()              |
-| bool         | IsEmpty()                  |
-| void         | AddQ(QElementType X)       |
-| QElementType | Delete()                   |
+| type         | function name        |
+| ------------:|:-------------------- |
+|              | Queue()              |
+|              | ~Queue()             |
+| void         | CreateQueue()        |
+| bool         | IsEmpty()            |
+| void         | AddQ(QElementType X) |
+| QElementType | Delete()             |
 
 ## 5、树（Tree）
 

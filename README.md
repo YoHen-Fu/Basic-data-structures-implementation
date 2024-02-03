@@ -8,20 +8,16 @@
 
 ## 4、队列（Queue）
 
-<a href="#jump1">点击后就会跳到你定义的锚点</a>
-
 **public functions:**
 
-| type         | function name        |
-| ------------:|:-------------------- |
-|              | [Queue()](#jump1)    |
-|              | ~Queue()             |
-| void         | CreateQueue()        |
-| bool         | IsEmpty()            |
-| void         | AddQ(QElementType X) |
-| QElementType | Delete()             |
-
-1. [目录1](#jump1) 2. [目录2](#jump2) --- 
+| type         | function name              |
+| ------------:|:-------------------------- |
+|              | [Queue()](./docs/Queue.md) |
+|              | ~Queue()                   |
+| void         | CreateQueue()              |
+| bool         | IsEmpty()                  |
+| void         | AddQ(QElementType X)       |
+| QElementType | Delete()                   |
 
 ## 5、树（Tree）
 
@@ -30,11 +26,3 @@
 ## 7、 堆（Heap）
 
 ## 8、图（Graph）
-
- Queue()
-
-<a id="jump1"></a>
-
-```
-这是第一节的内容。
-```

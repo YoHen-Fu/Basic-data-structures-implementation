@@ -1,31 +1,16 @@
-// 二叉树链表实现
+
 #include<iostream>
 #include<vector>
-#include "LinkedList.h"
+#include "Stack.h"
 
 int main(){
-    std::vector<int> nums1{1, 2, 3, 4, 5, -1, -1, 8};
-    LinkedList<int> *LN = new LinkedList<int>();
+    std::vector<int> nums1{12, 2, 6, 8, 1, 10, 22, 25};
+    Stack<int>* S = new Stack<int>();
     for(auto i = 0; i < nums1.size(); i++){
-        LN->Insert(nums1[i], LN->getLength());
+        S->Push(nums1[i]);
     }
-    LNode<int>* LNode_tmp;
-    LNode_tmp = LN->getValue();
-    while(LNode_tmp){
-        std::cout<<LNode_tmp->value<<" ";
-        LNode_tmp = LNode_tmp->next;
-    }
-    std::cout<<std::endl;
-    if(LN->Find(2)){
-        std::cout<<LN->Find(2)->value;
-    }
-    if(LN->Find(12)){
-        std::cout<<LN->Find(12)->value;
-    }
-    if(LN->Findith(3)){
-        std::cout<<LN->Findith(3)->value;
-    }
-    if(LN->Findith(12)){
-        std::cout<<LN->Findith(12)->value;
+    std::cout<<"堆栈中元素为：";
+    while(!S->IsEmpty()){
+        std::cout<<S->Pop()<<" ";
     }
 }

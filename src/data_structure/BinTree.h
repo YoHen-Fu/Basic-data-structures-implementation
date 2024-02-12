@@ -17,16 +17,15 @@ class BinTree{
 private:
     TNode<TElementType>* Tree{nullptr};
 public:
-    BinTree(){CreatBinTree();}
+    BinTree(){}
     BinTree(std::vector<TElementType> TreeData);
     ~BinTree(){}
 /*************************创建二叉树*********************/
 public:
     //创建二叉树
     void setBinTree( std::vector<TElementType> nums );
-    TNode<TElementType>* getTree();
+    TNode<TElementType>* getBinTree();
 private:
-    void CreatBinTree();
     TNode<TElementType>* SetBinTree(TNode<TElementType>* Tree, std::vector<TElementType> nums, int pos);
 /*******************二叉树基本性质**********************/
 public:
@@ -38,8 +37,6 @@ private:
     int GetHeight(TNode<TElementType>* Tree);
 /*******************二叉树操作**********************/
 public: 
-    //反转
-    void Traversal();
     void getLeaves();
     bool IsIsomorphic( BinTree<TElementType>* BT2 );
     // void operator=(std::vector<TElementType>* TreeData) {

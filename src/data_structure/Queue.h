@@ -7,12 +7,12 @@
 template<typename QElementType>
 struct QNodeVal{
     QElementType Data;
-    struct QNodeVal *next;
+    struct QNodeVal *next{nullptr};
 };
 template<typename QElementType>
 struct QNode{
-    struct QNodeVal<QElementType> *rear;
-    struct QNodeVal<QElementType> *front;
+    struct QNodeVal<QElementType> *rear{nullptr};
+    struct QNodeVal<QElementType> *front{nullptr};
 };
 
 template<typename QElementType>

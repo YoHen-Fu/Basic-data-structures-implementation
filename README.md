@@ -118,7 +118,7 @@ int main(){
 }
 ```
 
-**outpu**
+**output**
 
 ```c
 堆栈中元素为：25 22 10 1 8 6 2 12
@@ -137,18 +137,101 @@ int main(){
 | `void`         | `AddQ(QElementType X)` |
 | `QElementType` | `Delete()`             |
 
+**test**
+
+```c
+#include<iostream>
+#include<vector>
+#include"Queue.h"
+
+int main(){
+    Queue<int>* Qe = new Queue<int>();
+    Qe->AddQ(12);
+    Qe->AddQ(5);
+    int res;
+    while(!Qe->IsEmpty()){
+        std::cout<<Qe->DeleteQ()<<" ";
+    }
+}
+```
+
+**output**
+
+```c
+12 5
+```
+
 ## 5、树（Tree）
+
+### 基本二叉树
 
 **public functions:**
 
-| type | function name |
-| ----:|:------------- |
-|      |               |
-|      |               |
-|      |               |
-|      |               |
-|      |               |
-|      |               |
+| type                   | function name                                 |
+| ----------------------:|:--------------------------------------------- |
+|                        | `BinTree()`                                   |
+|                        | `BinTree(std::vector<TElementType> TreeData)` |
+|                        | `~BinTree()`                                  |
+| `void`                 | `setBinTree(std::vector<TElementType> nums)`  |
+| `TNode<TElementType>*` | `getBinTree()`                                |
+| `int`                  | `getHeight`                                   |
+| `void`                 | `getLeaves`                                   |
+| `void`                 | `getPreOrderT()`                              |
+| `void`                 | `getInOrderT()`                               |
+| `void`                 | `getPostOrderT()`                             |
+| `void`                 | `getLevelOrderT()`                            |
+| `bool`                 | `IsIsomorphic(BinTree<TElementType>* BT2)`    |
+
+**private function**
+
+| type                   | function name                                                                    |
+| ----------------------:|:-------------------------------------------------------------------------------- |
+| `TNode<TElementType>*` | `SetBinTree(TNode<TElementType>* Tree, std::vector<TElementType> nums, int pos)` |
+| `int`                  | `GetHeight(TNode<TElementType>* Tree)`                                           |
+| `void`                 | `PreOrderPrintLeaves(TNode<TElementType>* Tree)`                                 |
+| `bool`                 | `Isomorphic(TNode<TElementType>* Tree1, TNode<TElementType>* Tree2)`             |
+| `void`                 | `PreOrderTraversal(TNode<TElementType>* Tree)`                                   |
+| `void`                 | `InOrderTraversal(TNode<TElementType>* Tree)`                                    |
+| `void`                 | `PostOrderTraversal(TNode<TElementType>* Tree)`                                  |
+
+**test**
+
+```c
+#include<iostream>
+#include<vector>
+#include"BinTree.h"
+
+int main(){
+    // std::vector<int> nums{1, 2, 3, 4, 5, -1, -1, 8};
+    // BinTree<int>* BT = new BinTree<int>();
+    std::vector<char> nums{'a', 'b', 'c', 'd', 'e', '0', '0', 'f'};
+    BinTree<char>* BT = new BinTree<char>();
+    BT->setBinTree(nums);
+    std::cout<<"二叉树的前序遍历结果为：";
+    BT->getPreOrderT();
+    std::cout<<"二叉树的前序遍历结果为：";
+    BT->getInOrderT();
+    std::cout<<"二叉树的前序遍历结果为：";
+    BT->getPostOrderT();
+    std::cout<<"二叉树的前序遍历结果为：";
+    BT->getLevelOrderT();
+    std::cout<<"二叉树的前序遍历结果为：";
+    BT->getLeaves();
+    std::cout<<std::endl;
+    std::cout<<"二叉树的高度为："<< BT->getHeight();
+}
+```
+
+**output**
+
+```c
+二叉树的前序遍历结果为：a b d f e c 0 0
+二叉树的前序遍历结果为：f d b e a 0 c 0
+二叉树的前序遍历结果为：f d e b 0 0 c a
+二叉树的前序遍历结果为：a b c d e 0 0 f
+二叉树的前序遍历结果为：f e 0 0
+二叉树的高度为：4
+```
 
 ## 6、散列表（Hash）
 

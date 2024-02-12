@@ -15,14 +15,10 @@ void BinTree<TElementType>::setBinTree( std::vector<TElementType> nums ){
 }
 
 template <typename TElementType>
-TNode<TElementType>* BinTree<TElementType>::getTree(){
+TNode<TElementType>* BinTree<TElementType>::getBinTree(){
     return Tree;
 }
 
-template <typename TElementType>
-void BinTree<TElementType>::CreatBinTree( ){
-    // Tree = new TNode();
-}
 template <typename TElementType>
 TNode<TElementType>* BinTree<TElementType>::SetBinTree( TNode<TElementType>* Tree, std::vector<TElementType> nums, int pos){
     if(typeid(nums[pos-1]) == typeid(int)){
@@ -68,7 +64,7 @@ void BinTree<TElementType>::getLeaves(){
 }
 template <typename TElementType>
 bool BinTree<TElementType>::IsIsomorphic( BinTree<TElementType>* BT2 ){
-    return Isomorphic(Tree, BT2->getTree());
+    return Isomorphic(Tree, BT2->getBinTree());
 }
 
 //打印叶结点

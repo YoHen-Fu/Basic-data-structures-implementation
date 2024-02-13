@@ -163,7 +163,7 @@ int main(){
 
 ## 5、树（Tree）
 
-### 基本二叉树
+### [基本二叉树（BinTree）](./docs/BinTree.md)
 
 **public functions:**
 
@@ -209,13 +209,13 @@ int main(){
     BT->setBinTree(nums);
     std::cout<<"二叉树的前序遍历结果为：";
     BT->getPreOrderT();
-    std::cout<<"二叉树的前序遍历结果为：";
+    std::cout<<"二叉树的中序遍历结果为：";
     BT->getInOrderT();
-    std::cout<<"二叉树的前序遍历结果为：";
+    std::cout<<"二叉树的后序遍历结果为：";
     BT->getPostOrderT();
-    std::cout<<"二叉树的前序遍历结果为：";
+    std::cout<<"二叉树的层次遍历结果为：";
     BT->getLevelOrderT();
-    std::cout<<"二叉树的前序遍历结果为：";
+    std::cout<<"二叉树的叶子结点为：";
     BT->getLeaves();
     std::cout<<std::endl;
     std::cout<<"二叉树的高度为："<< BT->getHeight();
@@ -226,10 +226,10 @@ int main(){
 
 ```c
 二叉树的前序遍历结果为：a b d f e c 0 0
-二叉树的前序遍历结果为：f d b e a 0 c 0
-二叉树的前序遍历结果为：f d e b 0 0 c a
-二叉树的前序遍历结果为：a b c d e 0 0 f
-二叉树的前序遍历结果为：f e 0 0
+二叉树的中序遍历结果为：f d b e a 0 c 0
+二叉树的后序遍历结果为：f d e b 0 0 c a
+二叉树的层次遍历结果为：a b c d e 0 0 f
+二叉树的叶子结点为：f e 0 0
 二叉树的高度为：4
 ```
 

@@ -9,9 +9,9 @@ struct SNode{
 template <typename SValueType>
 class Stack{
 private:
-    SNode<SValueType>* SNPtr;
+    SNode<SValueType>* SNPtr = nullptr;
 public:
-    Stack(){SNPtr = nullptr;};
+    Stack(){};
     ~Stack(){};
     //判断栈是否空
     bool IsEmpty ();

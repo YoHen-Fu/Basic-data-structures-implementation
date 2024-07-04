@@ -6,7 +6,7 @@
 #define Error nullptr
 template<typename QValueType>
 struct QNodeVal{
-    QValueType Data;
+    QValueType value;
     struct QNodeVal *next{nullptr};
 };
 template<typename QValueType>
@@ -46,7 +46,7 @@ bool Queue<QValueType>::IsEmpty(){
 template<typename QValueType>
 void Queue<QValueType>::AddQ(QValueType X){
     QNodeVal<QValueType> *FrontCurr = new QNodeVal<QValueType>;
-    FrontCurr->Data = X;
+    FrontCurr->value = X;
     if(IsEmpty()){
         FrontCurr->next = PtrQ->front;
         PtrQ->front = FrontCurr;
@@ -72,7 +72,7 @@ QValueType Queue<QValueType>::DeleteQ(){
         }else{
             PtrQ->front = PtrQ->front->next;
         }
-        FrontElem = FrontCell->Data;
+        FrontElem = FrontCell->value;
         delete FrontCell;
         FrontCell = nullptr;
         return FrontElem;

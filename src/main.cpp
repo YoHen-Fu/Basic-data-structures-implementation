@@ -1,15 +1,15 @@
 #include<iostream>
 #include<vector>
-#include"Stack.h"
+#include "Stack.h"
 
 int main(){
-    std::vector<int> nums{1, 2, 3, 4, 5, -1, -1, 8};
-    Stack<int> stack;
-    for (size_t i = 0; i < nums.size(); i++)
-    {
-        stack.Push(nums[i]);
+    std::vector<int> nums1{12, 2, 6, 8, 1, 10, 22, 25};
+    Stack<int>* S = new Stack<int>();
+    for(auto i = 0; i < nums1.size(); i++){
+        S->Push(nums1[i]);
     }
-    
-    // std::cout << "The stack is empty: " << stack.IsEmpty() << std::endl;
-    return 0;
+    std::cout<<"堆栈中元素为：";
+    while(!S->IsEmpty()){
+        std::cout<<S->Pop()<<" ";
+    }
 }

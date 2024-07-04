@@ -18,16 +18,16 @@ struct QNode{
 template<typename QValueType>
 class Queue{
 private:
-    QNode<QValueType>* PtrQ;
+    QNode<QValueType>* QNPtr{nullptr};
 public:
-    Queue():PtrQ{new QNode<QValueType>} {};
+    Queue():QNPtr{new QNode<QValueType>} {};
     ~Queue(){};
     //创建新队列
     void CreateQueue();
     //判断队列是否为空
     bool IsEmpty();
     //向队列中添加元素
-    void AddQ(QValueType X);
+    void AddQ(QValueType item);
     //从队列中删除元素
     QValueType DeleteQ();
 };
@@ -35,25 +35,25 @@ public:
 //创建新队列
 template<typename QValueType>
 void Queue<QValueType>::CreateQueue(){
-    PtrQ->front = PtrQ->rear = nullptr;
+    QNPtr->front = QNPtr->rear = nullptr;
 }
 //判断队列是否为空
 template<typename QValueType>
 bool Queue<QValueType>::IsEmpty(){
-    return (PtrQ->front == nullptr);
+    return (QNPtr->front == nullptr);
 }
 //向队列中添加元素
 template<typename QValueType>
-void Queue<QValueType>::AddQ(QValueType X){
+void Queue<QValueType>::AddQ(QValueType item){
     QNodeVal<QValueType> *FrontCurr = new QNodeVal<QValueType>;
-    FrontCurr->value = X;
+    FrontCurr->value = item;
     if(IsEmpty()){
-        FrontCurr->next = PtrQ->front;
-        PtrQ->front = FrontCurr;
-        PtrQ->rear = FrontCurr;
+        FrontCurr->next = QNPtr->front;
+        QNPtr->front = FrontCurr;
+        QNPtr->rear = FrontCurr;
     }else{
-        PtrQ->rear->next = FrontCurr;
-        PtrQ->rear = FrontCurr;
+        QNPtr->rear->next = FrontCurr;
+        QNPtr->rear = FrontCurr;
     }
 }
 //从队列中删除元素
@@ -61,20 +61,23 @@ template<typename QValueType>
 QValueType Queue<QValueType>::DeleteQ(){
     QNodeVal<QValueType> *FrontCell = new QNodeVal<QValueType>;
     QValueType FrontElem;
-    // if(IsEmpty()){
-    //     std::cout<<"队列空！";
-    //     return Error;
-    // }
-    // else{
-        FrontCell = PtrQ->front;
-        if(PtrQ->front == PtrQ->rear){
-            PtrQ->front = PtrQ->rear = nullptr;
+    try{
+        if(!IsEmpty()){
+            FrontCell = QNPtr->front;
+            if(QNPtr->front == QNPtr->rear){
+                QNPtr->front = QNPtr->rear = nullptr;
+            }else{
+                QNPtr->front = QNPtr->front->next;
+            }
+            FrontElem = FrontCell->value;
+            delete FrontCell;
+            FrontCell = nullptr;
+            return FrontElem;
         }else{
-            PtrQ->front = PtrQ->front->next;
+            throw "队列为空！";
         }
-        FrontElem = FrontCell->value;
-        delete FrontCell;
-        FrontCell = nullptr;
-        return FrontElem;
-    // }
+    }catch(const char* msg){
+        std::cerr << msg << std::endl;
+    }
+    throw "队列为空！";
 }

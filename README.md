@@ -115,6 +115,14 @@ int main(){
     while(!S->IsEmpty()){
         std::cout<<S->Pop()<<" ";
     }
+    try{
+        S->Pop();
+    }catch(const char* e){
+        std::cout<<e<<std::endl;
+    }
+    delete S;
+    S = nullptr;
+    return 0;
 }
 ```
 

@@ -1,10 +1,13 @@
 #include<iostream>
 #include<vector>
-#include "LinkedList.h"
+#include "DSFactory.h"
+#include "DSInterface.h"
 
 int main(){
+
+    ILinkedList<int>* LN = DSFactory::createLinkedList<int>();
     std::vector<int> nums1{1, 2, 3, 4, 5, -1, -1, 8};
-    LinkedList<int> *LN = new LinkedList<int>();
+    // LinkedList<int> *LN = new LinkedList<int>();
     for(auto i = 0; i < nums1.size(); i++){
         LN->Insert(nums1[i], LN->getLength());  //遍历给链表赋值
     }

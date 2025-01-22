@@ -36,10 +36,9 @@ LinkedList<LValueType>::~LinkedList(){
     LNode_tmp = nullptr;
 }
 /*******************添加与删除元素********************/
-//在位置i处插入元素X，有头指针，因此编号从 1 开始
+//在位置i处插入元素LValueType
 template <typename LValueType>
 void LinkedList<LValueType>::Insert( LValueType X, Position i ){
-    LNode<LValueType>* s_tmp;
     if(i == 0){
         LNode<LValueType>* Node_tmp = new LNode<LValueType>();
         Node_tmp->value = X;
@@ -47,35 +46,36 @@ void LinkedList<LValueType>::Insert( LValueType X, Position i ){
         LNPtr = Node_tmp;
         return;
     }
-    s_tmp = Findith(i-1);
-    if(s_tmp == nullptr){
+    LNode<LValueType>* Node_tmp;
+    Node_tmp = Findith(i-1);
+    if(Node_tmp == nullptr){
         std::cout<<"插入位置不正确！";
         return;
     }
-    LNode<LValueType>* p = new LNode<LValueType>();
-    p->value = X;
-    p->next = s_tmp->next;
-    s_tmp->next = p;
+    LNode<LValueType>* Node_new = new LNode<LValueType>();
+    Node_new->value = X;
+    Node_new->next = Node_tmp->next;
+    Node_tmp->next = Node_new;
 }
 //删除位置i处的元素
 template <typename LValueType>
 void LinkedList<LValueType>::Delete( Position i ){
     if(i == 0){
-        LNode<LValueType>* LNode_tmp{LNPtr};
+        LNode<LValueType>* Node_tmp{LNPtr};
         LNPtr = LNPtr->next;
-        delete LNode_tmp;
-        LNode_tmp = nullptr;
+        delete Node_tmp;
+        Node_tmp = nullptr;
         return;
     }
-    LNode<LValueType>* p = Findith(i-1);
-    if(p == nullptr || p->next == nullptr){
+    LNode<LValueType>* Node_tmp = Findith(i-1);
+    if(Node_tmp == nullptr || Node_tmp->next == nullptr){
         std::cout<<"删除位置不正确！";
         return;
     }
-    LNode<LValueType>* s{p->next};
-    p->next = p->next->next;
-    delete s;
-    s = nullptr;
+    LNode<LValueType>* Node_delete{Node_tmp->next};
+    Node_tmp->next = Node_tmp->next->next;
+    delete Node_delete;
+    Node_delete = nullptr;
 }
 /**********************查找元素************************/
 //查找表中位置为i的元素

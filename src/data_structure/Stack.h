@@ -1,24 +1,19 @@
 #pragma once
+#include "DSInterface.h"
 
 template <typename SValueType>
-struct SNode{
-    SValueType value;
-    SNode* next;
-};
-
-template <typename SValueType>
-class Stack{
+class Stack :  public IStack<SValueType>{
 private:
     SNode<SValueType>* SNPtr = nullptr;
 public:
     Stack(){};
     ~Stack(){};
     //判断栈是否空
-    bool IsEmpty ();
+    bool IsEmpty () override;
     //向栈中压入元素
-    void Push( SValueType item );
+    void Push( SValueType item ) override;
     //从栈中弹出元素
-    SValueType Pop();
+    SValueType Pop() override;
 };
 
 //判断栈是否空

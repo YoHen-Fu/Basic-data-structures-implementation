@@ -18,3 +18,34 @@ public:
     virtual int getLength() = 0;
     virtual LNode<LValueType>* getValue() = 0;
 };
+
+template <typename SValueType>
+struct SNode{
+    SValueType value;
+    SNode* next;
+};
+template <typename SValueType>
+class IStack{
+public:
+    virtual ~IStack() = default;
+    //判断栈是否空
+    virtual bool IsEmpty () = 0;
+    //向栈中压入元素
+    virtual void Push( SValueType item ) = 0;
+    //从栈中弹出元素
+    virtual SValueType Pop() = 0;
+};
+
+template<typename QValueType>
+class IQueue{
+public:
+    virtual ~IQueue() = default;
+    //创建新队列
+    virtual void CreateQueue() = 0;
+    //判断队列是否为空
+    virtual bool IsEmpty() = 0;
+    //向队列中添加元素
+    virtual void AddQ(QValueType item) = 0;
+    //从队列中删除元素
+    virtual QValueType DeleteQ() = 0;
+};

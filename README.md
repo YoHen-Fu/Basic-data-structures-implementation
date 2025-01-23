@@ -31,13 +31,16 @@
 **test**
 
 ```c
-#include<iostream>
-#include<vector>
-#include "LinkedList.h"
+#include <iostream>
+#include <vector>
+#include "DSFactory.h"
+#include "DSInterface.h"
 
 int main(){
+
+    ILinkedList<int>* LN = DSFactory::createLinkedList<int>();
     std::vector<int> nums1{1, 2, 3, 4, 5, -1, -1, 8};
-    LinkedList<int> *LN = new LinkedList<int>();
+    // LinkedList<int> *LN = new LinkedList<int>();
     for(auto i = 0; i < nums1.size(); i++){
         LN->Insert(nums1[i], LN->getLength());  //遍历给链表赋值
     }
@@ -54,25 +57,26 @@ int main(){
     LN->Delete(2);
     std::cout<<std::endl;
     LNode_tmp = LN->getValue();
-    std::cout<<"删除位置2处的元素后，链表中的值为："<<std::endl;
+    std::cout<<"删除位置2处的元素后，链表中的值为：";
     while(LNode_tmp){
         std::cout<<LNode_tmp->value<<" ";
         LNode_tmp = LNode_tmp->next;
     }
+    std::cout<<std::endl;
     //查找链表中的值
     if(LN->Find(2)){
-        std::cout<<"链表中存在值为2的元素";
+        std::cout<<"链表中存在值为2的元素"<<std::endl;
     }else{
-        std::cout<<"链表中不存在值为2的元素";
+        std::cout<<"链表中不存在值为2的元素"<<std::endl;
     }
     if(LN->Find(12)){
-        std::cout<<LN->Find(12)->value;
+        std::cout<<LN->Find(12)->value<<std::endl;
     }
     if(LN->Findith(3)){
-        std::cout<<"链表中位置3处的值为"<<LN->Findith(3)->value;
+        std::cout<<"链表中位置3处的值为"<<LN->Findith(3)->value<<std::endl;
     }
     if(LN->Findith(12)){
-        std::cout<<"链表中位置3处的值为"<<LN->Findith(12)->value;
+        std::cout<<"链表中位置3处的值为"<<LN->Findith(12)->value<<std::endl;
     } 
 }
 ```
@@ -82,8 +86,9 @@ int main(){
 ```c
 链表的长度为：8
 链表中的值为：1 2 3 4 5 -1 -1 8
-删除位置2处的元素后，链表中的值为：
-1 2 4 5 -1 -1 8 链表中存在值为2的元素链表中位置3处的值为5
+删除位置2处的元素后，链表中的值为：1 2 4 5 -1 -1 8
+链表中存在值为2的元素
+链表中位置3处的值为5
 ```
 
 ## [3、栈（Stack）](./docs/Stack.md)
@@ -103,11 +108,12 @@ int main(){
 ```c
 #include<iostream>
 #include<vector>
-#include "Stack.h"
+#include "DSFactory.h"
+#include "DSInterface.h"
 
 int main(){
     std::vector<int> nums1{12, 2, 6, 8, 1, 10, 22, 25};
-    Stack<int>* S = new Stack<int>();
+    IStack<int>* S = DSFactory::createStack<int>();
     for(auto i = 0; i < nums1.size(); i++){
         S->Push(nums1[i]);
     }
@@ -129,7 +135,8 @@ int main(){
 **output**
 
 ```c
-堆栈中元素为：25 22 10 1 8 6 2 12
+堆栈中元素为：25 22 10 1 8 6 2 12 堆栈为空！
+堆栈为空！
 ```
 
 ## 4、[队列（Queue）](./docs/Queue.md)
@@ -150,16 +157,19 @@ int main(){
 ```c
 #include<iostream>
 #include<vector>
-#include"Queue.h"
+#include "DSFactory.h"
+#include "DSInterface.h"
 
 int main(){
-    Queue<int>* Qe = new Queue<int>();
+    IQueue<int>* Qe = DSFactory::createQueue<int>();
     Qe->AddQ(12);
     Qe->AddQ(5);
     int res;
     while(!Qe->IsEmpty()){
         std::cout<<Qe->DeleteQ()<<" ";
     }
+    delete Qe;
+    Qe = nullptr;
 }
 ```
 

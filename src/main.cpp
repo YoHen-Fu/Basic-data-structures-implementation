@@ -4,44 +4,21 @@
 #include "DSInterface.h"
 
 int main(){
-
-    ILinkedList<int>* LN = DSFactory::createLinkedList<int>();
-    std::vector<int> nums1{1, 2, 3, 4, 5, -1, -1, 8};
-    // LinkedList<int> *LN = new LinkedList<int>();
-    for(auto i = 0; i < nums1.size(); i++){
-        LN->Insert(nums1[i], LN->getLength());  //遍历给链表赋值
-    }
-    //链表的长度
-    std::cout<<"链表的长度为："<<LN->getLength()<<std::endl;
-    //输出链表中存储的值
-    LNode<int>* LNode_tmp;
-    LNode_tmp = LN->getValue();
-    std::cout<<"链表中的值为：";
-    while(LNode_tmp){
-        std::cout<<LNode_tmp->value<<" ";
-        LNode_tmp = LNode_tmp->next;
-    }
-    LN->Delete(2);
+    // std::vector<int> nums{1, 2, 3, 4, 5, -1, -1, 8};
+    // BinTree<int>* BT = new BinTree<int>();
+    std::vector<char> nums{'a', 'b', 'c', 'd', 'e', '0', '0', 'f'};
+    BinTree<char>* BT = new BinTree<char>();
+    BT->setBinTree(nums);
+    std::cout<<"二叉树的前序遍历结果为：";
+    BT->getPreOrderT();
+    std::cout<<"二叉树的中序遍历结果为：";
+    BT->getInOrderT();
+    std::cout<<"二叉树的后序遍历结果为：";
+    BT->getPostOrderT();
+    std::cout<<"二叉树的层次遍历结果为：";
+    BT->getLevelOrderT();
+    std::cout<<"二叉树的叶子结点为：";
+    BT->getLeaves();
     std::cout<<std::endl;
-    LNode_tmp = LN->getValue();
-    std::cout<<"删除位置2处的元素后，链表中的值为："<<std::endl;
-    while(LNode_tmp){
-        std::cout<<LNode_tmp->value<<" ";
-        LNode_tmp = LNode_tmp->next;
-    }
-    //查找链表中的值
-    if(LN->Find(2)){
-        std::cout<<"链表中存在值为2的元素";
-    }else{
-        std::cout<<"链表中不存在值为2的元素";
-    }
-    if(LN->Find(12)){
-        std::cout<<LN->Find(12)->value<<std::endl;
-    }
-    if(LN->Findith(3)){
-        std::cout<<"链表中位置3处的值为"<<LN->Findith(3)->value<<std::endl;
-    }
-    if(LN->Findith(12)){
-        std::cout<<"链表中位置3处的值为"<<LN->Findith(12)->value<<std::endl;
-    } 
+    std::cout<<"二叉树的高度为："<< BT->getHeight();
 }

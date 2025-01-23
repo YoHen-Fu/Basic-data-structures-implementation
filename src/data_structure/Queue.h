@@ -16,7 +16,7 @@ struct QNode{
 };
 
 template<typename QValueType>
-class Queue{
+class Queue : public IQueue<QValueType>{
 private:
     QNode<QValueType>* QNPtr{nullptr};
 public:

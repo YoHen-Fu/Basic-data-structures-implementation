@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 typedef int Position;
 template <typename LValueType>
@@ -48,4 +49,35 @@ public:
     virtual void AddQ(QValueType item) = 0;
     //从队列中删除元素
     virtual QValueType DeleteQ() = 0;
+};
+
+template <typename TElementType>
+struct TNode{
+    TNode* Left;
+    TNode* Right;
+    TElementType value;
+};
+template <typename TElementType>
+class IBinTree{
+public:
+    virtual ~IBinTree() = default;
+/*************************创建二叉树*********************/
+public:
+    //创建二叉树
+    virtual void setBinTree( std::vector<TElementType> nums ) = 0;
+    virtual TNode<TElementType>* getBinTree() = 0;
+    //判断二叉树是否为空
+    virtual bool IsEmpty() = 0;
+    //二叉树的高度
+    virtual int getHeight() = 0;
+    virtual void getLeaves() = 0;
+    virtual bool IsIsomorphic( IBinTree<TElementType>* BT2 ) = 0;
+    //先序遍历
+    virtual void getPreOrderT() = 0;
+    //中序遍历
+    virtual void getInOrderT() = 0;
+    //后序遍历
+    virtual void getPostOrderT() = 0;
+    //层次遍历
+    virtual void getLevelOrderT() = 0;
 };

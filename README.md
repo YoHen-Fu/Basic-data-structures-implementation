@@ -215,15 +215,14 @@ int main(){
 **test**
 
 ```c
-#include<iostream>
-#include<vector>
-#include"BinTree.h"
+#include <iostream>
+#include <vector>
+#include "DSFactory.h"
+#include "DSInterface.h"
 
 int main(){
-    // std::vector<int> nums{1, 2, 3, 4, 5, -1, -1, 8};
-    // BinTree<int>* BT = new BinTree<int>();
     std::vector<char> nums{'a', 'b', 'c', 'd', 'e', '0', '0', 'f'};
-    BinTree<char>* BT = new BinTree<char>();
+    IBinTree<char>* BT = DSFactory::createBinTree<char>();
     BT->setBinTree(nums);
     std::cout<<"二叉树的前序遍历结果为：";
     BT->getPreOrderT();
@@ -231,8 +230,8 @@ int main(){
     BT->getInOrderT();
     std::cout<<"二叉树的后序遍历结果为：";
     BT->getPostOrderT();
-    std::cout<<"二叉树的层次遍历结果为：";
-    BT->getLevelOrderT();
+    // std::cout<<"二叉树的层次遍历结果为：";
+    // BT->getLevelOrderT();
     std::cout<<"二叉树的叶子结点为：";
     BT->getLeaves();
     std::cout<<std::endl;

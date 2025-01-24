@@ -4,7 +4,7 @@
 #include "LinkedList.h"
 #include "Stack.h"
 #include "Queue.h"
-
+#include "BinTree.h"
 
 class DSFactory {
 public:
@@ -19,6 +19,10 @@ public:
     template <typename T>
     static IQueue<T>* createQueue(){
         return new Queue<T>();
+    }
+    template <typename T>
+    static IBinTree<T>* createBinTree(){
+        return new BinTree<T>();
     }
 };
 

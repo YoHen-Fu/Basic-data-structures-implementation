@@ -1,7 +1,6 @@
 // 队列的链式存储实现
 #pragma once
 #include<iostream>
-#include"BinTree.h"
 
 #define Error nullptr
 template<typename QValueType>

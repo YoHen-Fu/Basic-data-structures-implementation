@@ -250,6 +250,61 @@ int main(){
 二叉树的高度为：4
 ```
 
+### 二叉搜索树
+
+|                       type | function name                                   |
+| -------------------------: | :---------------------------------------------- |
+| `BSTNode<BSTElementType>*` | `setBinSTree(std::vector<BSTElementType> nums)` |
+|                     `bool` | `IsEmpty()`                                     |
+|     `BSTNode<BSTElement>*` | `Find(BSTElementType X)`                        |
+|     `BSTNode<BSTElement>*` | `FindMax()`                                     |
+|     `BSTNode<BSTElement>*` | `FindMin`                                       |
+|     `BSTNode<BSTElement>*` | `Insert(BSTElementType X)`                      |
+|     `BSTNode<BSTElement>*` | `Delete(BSTElementType X)`                      |
+
+**test**
+
+```cpp
+#include <iostream>
+#include <vector>
+#include "DSFactory.h"
+#include "DSInterface.h"
+
+int main(){    
+    std::vector<int> nums{10, 8, 11, 6, 9, -1, 12};
+    IBinSearchTree<int>* Tree = DSFactory::createBinSearchTree<int>();
+    Tree->setBinSTree(nums);
+    auto tmp{Tree->Find(11)};
+    if(tmp){
+        std::cout<<tmp->value<<std::endl;
+    }
+    auto max{Tree->FindMax()};
+    if(max){
+        std::cout<<max->value<<std::endl;
+    }
+    auto min{Tree->FindMin()};
+    if(min){
+        std::cout<<min->value<<std::endl;
+    }
+    Tree->Insert(13);
+    Tree->Insert(5);
+    Tree->Insert(7);
+    Tree->Delete(10);
+    std::cout<<"程序执行完毕";
+}
+```
+
+**output**
+
+```c
+11
+12
+-1
+程序执行完毕
+```
+
+
+
 ## 6、散列表（Hash）
 
 **public functions:**

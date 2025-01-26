@@ -81,3 +81,31 @@ public:
     //层次遍历
     virtual void getLevelOrderT() = 0;
 };
+
+// 二叉搜索树
+template <typename BSTElementType>
+struct BSTNode{
+    BSTNode* Left;
+    BSTNode* Right;
+    BSTElementType value;
+};
+template <typename BSTElementType>
+class IBinSearchTree{
+public:
+    virtual ~IBinSearchTree() = default;
+public:
+    //判断二叉搜索树是否为空
+    virtual bool IsEmpty() = 0;
+    //给二叉树赋值
+    virtual BSTNode<BSTElementType>* setBinSTree(std::vector<BSTElementType> nums) = 0;
+    //查找二叉搜索树中的元素X，返回所在地址
+    virtual BSTNode<BSTElementType>* Find( BSTElementType X ) = 0;
+    //返回二叉搜索树中最大值地址
+    virtual BSTNode<BSTElementType>* FindMax() = 0;
+    //返回二叉搜索树中最小地址
+    virtual BSTNode<BSTElementType>* FindMin() = 0;
+    //向二叉搜索树中插入元素
+    virtual BSTNode<BSTElementType>* Insert( BSTElementType X) = 0;
+    //删除二叉搜索树中的元素
+    virtual BSTNode<BSTElementType>* Delete( BSTElementType X ) = 0;
+};

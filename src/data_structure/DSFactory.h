@@ -5,6 +5,7 @@
 #include "Stack.h"
 #include "Queue.h"
 #include "BinTree.h"
+#include "BinSearchTree.h"
 
 class DSFactory {
 public:
@@ -23,6 +24,10 @@ public:
     template <typename T>
     static IBinTree<T>* createBinTree(){
         return new BinTree<T>();
+    }
+    template <typename T>
+    static IBinSearchTree<T>* createBinSearchTree(){
+        return new BinSearchTree<T>();
     }
 };
 

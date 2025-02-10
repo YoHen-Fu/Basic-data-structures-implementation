@@ -320,6 +320,8 @@ int main(){
 
 ## 7、 堆（Heap）
 
+### 最大堆
+
 **public functions:**
 
 | type | function name |
@@ -330,6 +332,12 @@ int main(){
 |      |               |
 |      |               |
 |      |               |
+
+### 最小堆
+
+
+
+
 
 ## 8、图（Graph）
 

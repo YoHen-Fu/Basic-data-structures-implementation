@@ -6,6 +6,7 @@
 #include "Queue.h"
 #include "BinTree.h"
 #include "BinSearchTree.h"
+#include "MaxHeap.h"
 
 class DSFactory {
 public:
@@ -28,6 +29,10 @@ public:
     template <typename T>
     static IBinSearchTree<T>* createBinSearchTree(){
         return new BinSearchTree<T>();
+    }
+    template <typename T>
+    static std::unique_ptr<LinkedList<T>> createLinkedList(){
+        return std::make_unique<LinkedList<T>>();
     }
 };
 

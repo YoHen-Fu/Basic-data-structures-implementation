@@ -109,3 +109,25 @@ public:
     //删除二叉搜索树中的元素
     virtual BSTNode<BSTElementType>* Delete( BSTElementType X ) = 0;
 };
+
+struct HeapStruct{
+    int* Elements;
+    int Size;
+    int Capacity;
+};
+template<typename HeapElementType>
+class IMaxHeap{
+public:
+        virtual IMaxHeapMaxHeap() = default;
+public:
+    //创建最大堆
+    virtual HeapStruct* CreateMaxHeap( HeapStruct* H, int MaxSize ) = 0;
+    //判断堆是否满
+    virtual bool IsFull( HeapStruct* H ) = 0;
+    //判断堆是否空
+    virtual bool IsEmpty( HeapStruct* H ) = 0;
+    //向堆中插入元素
+    virtual void Insert( HeapStruct* H, HeapElementType item ) = 0;
+    //删除堆顶元素，并调整堆仍为最大堆
+    virtual HeapElementType DeleteMax( HeapStruct* H ) = 0;
+};

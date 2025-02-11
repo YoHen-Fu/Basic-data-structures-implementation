@@ -2,6 +2,8 @@
 #include <vector>
 
 typedef int Position;
+typedef unsigned int uint;
+
 template <typename LValueType>
 struct LNode{ 
     LNode<LValueType>* next; 
@@ -110,10 +112,11 @@ public:
     virtual BSTNode<BSTElementType>* Delete( BSTElementType X ) = 0;
 };
 
+template<typename HeapElementType>
 struct HeapStruct{
-    int* Elements;
-    int Size;
-    int Capacity;
+    HeapElementType* Elements;
+    uint Size;
+    uint Capacity;
 };
 template<typename HeapElementType>
 class IMaxHeap{

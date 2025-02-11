@@ -31,10 +31,11 @@ public:
         return new BinSearchTree<T>();
     }
     template <typename T>
-    static std::unique_ptr<LinkedList<T>> createLinkedList(){
-        return std::make_unique<LinkedList<T>>();
+    static IMaxHeap<T>* createIMaxHeap(){
+        return new MaxHeap<T>();
     }
 };
+
 
 // class DSFactory {
 // public:
